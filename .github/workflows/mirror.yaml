@@ -5,9 +5,9 @@ on:
     - cron: "0 0 * * 1" # Run at midnight every Monday
   workflow_dispatch:
 env:
-  CHART_NAME: gpu-operator
-  GH_PAGES_URL: mrsimonemms.github.io/nvidia-helm-mirror
-  REGISTRY_SOURCE: https://helm.ngc.nvidia.com/nvidia
+  CHART_NAME: modelexpress
+  GH_PAGES_URL: vladmirtxrx.github.io/nvidia-helm-mirror
+  REGISTRY_SOURCE: https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts
 permissions:
   contents: write
 jobs:
