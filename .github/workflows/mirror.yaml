@@ -32,7 +32,7 @@ jobs:
           helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/modelexpress-0.6.0.tgz
           helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/dynamo-platform-1.5.0.tgz
           cd .. && mv charts/index.yaml .
-          helm repo index charts/ --url https://$GH_PAGES_URL/charts
+          helm repo index charts/ --url "https://$GH_PAGES_URL/charts"
       - name: "Commit changes"
         if: github.ref == 'refs/heads/main'
         run: |
