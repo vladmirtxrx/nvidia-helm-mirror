@@ -21,17 +21,18 @@ jobs:
 
       - uses: actions/setup-go@v5
 
-      - name: Install helm-mirror
-        run: go install github.com/konstructio/helm-mirror@latest
+      - uses: azure/setup-helm@v5
+        id: install
 
       - name: Download all Helm charts
         if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p charts
-          helm-mirror "$REGISTRY_SOURCE" "$(pwd)/charts" --new-root-url "https://${{ env.GH_PAGES_URL }}" --verbose --chart-name dynamo-platform --chart-version 1.5.0
-          helm-mirror "$REGISTRY_SOURCE" "$(pwd)/charts" --new-root-url "https://${{ env.GH_PAGES_URL }}" --verbose --chart-name modelexpress --chart-version 0.6.0
-          mv charts/index.yaml .
-
+          cd charts
+          helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/modelexpress-0.6.0.tgz
+          helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/dynamo-platform-1.5.0.tgz
+          cd .
+          helm repo index charts --url https://$GH_PAGES_URL
       - name: "Commit changes"
         if: github.ref == 'refs/heads/main'
         run: |
