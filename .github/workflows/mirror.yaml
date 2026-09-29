@@ -5,7 +5,6 @@ on:
     - cron: "0 0 * * 1" # Run at midnight every Monday
   workflow_dispatch:
 env:
-  CHART_NAME: modelexpress
   GH_PAGES_URL: vladmirtxrx.github.io/nvidia-helm-mirror
   REGISTRY_SOURCE: https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts
 permissions:
@@ -29,7 +28,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p charts
-          helm-mirror "$REGISTRY_SOURCE" "$(pwd)/charts" --all-versions --verbose --new-root-url "https://${{ env.GH_PAGES_URL }}" --chart-name "${CHART_NAME}"
+          helm-mirror "$REGISTRY_SOURCE" "$(pwd)/charts" --new-root-url "https://${{ env.GH_PAGES_URL }}" --verbose --chart-name dynamo-platform --chart-version 1.5.0
+          helm-mirror "$REGISTRY_SOURCE" "$(pwd)/charts" --new-root-url "https://${{ env.GH_PAGES_URL }}" --verbose --chart-name modelexpress --chart-version 0.6.0
           mv charts/index.yaml .
 
       - name: "Commit changes"
