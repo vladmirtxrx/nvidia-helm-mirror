@@ -3,7 +3,7 @@ entries:
   dynamo-platform:
   - apiVersion: v2
     appVersion: 1.5.0
-    created: "2026-10-19T03:44:58.668612605Z"
+    created: "2026-10-26T03:46:13.288100177Z"
     dependencies:
     - condition: dynamo-operator.enabled
       name: dynamo-operator
@@ -45,7 +45,7 @@ entries:
   modelexpress:
   - apiVersion: v2
     appVersion: 0.6.0
-    created: "2026-10-19T03:44:58.669447076Z"
+    created: "2026-10-26T03:46:13.289205538Z"
     description: A Helm chart for ModelExpress - a AI model cache management service
     digest: 06c4f9ea7cc0f5cfd76f304ef527bf3ea738491d52148488398d6d4e3f0759d0
     home: https://github.com/ai-dynamo/modelexpress/
@@ -62,4 +62,4 @@ entries:
     urls:
     - https://vladmirtxrx.github.io/nvidia-helm-mirror/charts/modelexpress-0.6.0.tgz
     version: 0.6.0
-generated: "2026-10-19T03:44:58.648850156Z"
+generated: "2026-10-26T03:46:13.268255791Z"
