@@ -29,8 +29,8 @@ jobs:
         run: |
           mkdir -p charts/
           cd charts/
-          helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/modelexpress-0.6.0.tgz
-          helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/dynamo-platform-1.5.0.tgz
+          helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/modelexpress-0.7.0.tgz
+          helm pull https://helm.ngc.nvidia.com/nvidia/ai-dynamo/charts/dynamo-platform-1.6.1.tgz
           cd ..
           helm repo index charts/ --url "https://$GH_PAGES_URL/charts"
           mv charts/index.yaml .
